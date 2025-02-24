@@ -74,6 +74,12 @@ namespace Jellyfin.Server
         public bool NoDetectNetworkChange { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether the server should server metrics.
+        /// </summary>
+        [Option("enable-metrics", Required = false, HelpText = "Indicates that the web server should server metrics.")]
+        public bool EnableMetrics { get; set; }
+
+        /// <summary>
         /// Gets the command line options as a dictionary that can be used in the .NET configuration system.
         /// </summary>
         /// <returns>The configuration dictionary.</returns>
@@ -99,6 +105,11 @@ namespace Jellyfin.Server
             if (NoDetectNetworkChange)
             {
                 config.Add(DetectNetworkChangeKey, bool.FalseString);
+            }
+
+            if (EnableMetrics)
+            {
+                config.Add(EnableMetricsKey, bool.TrueString);
             }
 
             return config;

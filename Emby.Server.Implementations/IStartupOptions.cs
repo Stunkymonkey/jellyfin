@@ -24,5 +24,10 @@ namespace Emby.Server.Implementations
         /// Gets the value of the --published-server-url command line option.
         /// </summary>
         string? PublishedServerUrl { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether metrics should be served by the --enable-metrics command line option.
+        /// </summary>
+        bool EnableMetrics { get; }
     }
 }

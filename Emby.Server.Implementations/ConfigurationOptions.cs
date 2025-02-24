@@ -21,7 +21,8 @@ namespace Emby.Server.Implementations
             { SqliteCacheSizeKey, "20000" },
             { FfmpegSkipValidationKey, bool.FalseString },
             { FfmpegImgExtractPerfTradeoffKey, bool.FalseString },
-            { DetectNetworkChangeKey, bool.TrueString }
+            { DetectNetworkChangeKey, bool.TrueString },
+            { EnableMetricsKey, bool.FalseString }
         };
     }
 }

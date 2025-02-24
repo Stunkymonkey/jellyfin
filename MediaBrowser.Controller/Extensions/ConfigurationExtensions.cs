@@ -75,6 +75,11 @@ namespace MediaBrowser.Controller.Extensions
         public const string DetectNetworkChangeKey = "DetectNetworkChange";
 
         /// <summary>
+        /// The key for enabling the metrics endpoint.
+        /// </summary>
+        public const string EnableMetricsKey = "EnableMetrics";
+
+        /// <summary>
         /// Gets a value indicating whether the application should host static web content from the <see cref="IConfiguration"/>.
         /// </summary>
         /// <param name="configuration">The configuration to retrieve the value from.</param>
@@ -146,5 +151,14 @@ namespace MediaBrowser.Controller.Extensions
         /// <returns>The sqlite cache size.</returns>
         public static int? GetSqliteCacheSize(this IConfiguration configuration)
             => configuration.GetValue<int?>(SqliteCacheSizeKey);
+
+        /// <summary>
+        /// Gets a value indicating whether the application should server metrics <see cref="IConfiguration"/>.
+        /// </summary>
+        /// <param name="configuration">The configuration to retrieve the value from.</param>
+        /// <returns>The parsed config value.</returns>
+        /// <exception cref="FormatException">The config value is not a valid bool string. See <see cref="bool.Parse(string)"/>.</exception>
+        public static bool EnableMetrics(this IConfiguration configuration)
+            => configuration.GetValue<bool>(EnableMetricsKey);
     }
 }
