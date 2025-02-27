@@ -67,7 +67,7 @@ public class ServerConfiguration : BaseApplicationConfiguration
     /// <summary>
     /// Gets or sets a value indicating whether to enable prometheus metrics exporting.
     /// </summary>
-    public bool EnableMetrics { get; set; } = false;
+    public bool EnableMetrics { get; set; } = Environment.GetEnvironmentVariable("JELLYFIN_ENABLE_METRICS")?.Equals("true", StringComparison.OrdinalIgnoreCase) ?? false;
 
     public bool EnableNormalizedItemByNameIds { get; set; } = true;
 
